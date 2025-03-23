@@ -4,10 +4,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+# Класс для работы со страницей "О нас" на tensor.ru.
 class TensorAboutPage(BasePage):
-    """
-    Класс для работы со страницей "О нас" на tensor.ru.
-    """
     # Локатор раздела "Работаем"
     WORKING_SECTION = ("xpath", '//*[@id="container"]/div[1]/div/div[4]/div[1]/h2')
     # Локатор всех изображений в разделе "Работаем"
@@ -17,17 +15,11 @@ class TensorAboutPage(BasePage):
         super().__init__(driver)  # Вызов конструктора родительского класса
 
     def is_working_section_present(self):
-        """
-        Проверяет, отображается ли раздел "Работаем".
-        :return: True, если раздел отображается, иначе False.
-        """
+        # Проверяет, отображается ли раздел "Работаем".
         return self.find_element(self.WORKING_SECTION).is_displayed()
 
+    # Проверяет, что все изображения в разделе "Работаем" имеют одинаковые размеры.
     def check_images_dimensions(self):
-        """
-        Проверяет, что все изображения в разделе "Работаем" имеют одинаковые размеры.
-        :return: True, если все изображения имеют одинаковые размеры, иначе False.
-        """
         # Ожидание загрузки изображений
         WebDriverWait(self.driver, 10).until(
             EC.presence_of_all_elements_located(self.WORKING_IMAGES)

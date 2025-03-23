@@ -2,11 +2,10 @@ import pytest
 from pages.sbis_contacts_page import SbisContactsPage
 
 
+# Тест для проверки смены региона на странице контактов sbis.ru.
 @pytest.mark.usefixtures("browser")
 def test_change_region(browser):
-    """
-    Тест для проверки смены региона на странице контактов sbis.ru.
-    """
+
     # Шаг 1: Переход на сайт sbis.ru в раздел "Контакты"
     sbis_contacts_page = SbisContactsPage(browser)
     sbis_contacts_page.open("https://sbis.ru/contacts")
