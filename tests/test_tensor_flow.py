@@ -4,11 +4,9 @@ from pages.tensor_main_page import TensorMainPage
 from pages.tensor_about_page import TensorAboutPage
 
 
+# Тест для проверки функциональности баннера Тензор на sbis.ru.
 @pytest.mark.usefixtures("browser")
 def test_tensor_banner(browser):
-    """
-    Тест для проверки функциональности баннера Тензор на sbis.ru.
-    """
     # Шаг 1: Переход на сайт sbis.ru в раздел "Контакты"
     sbis_contacts_page = SbisContactsPage(browser)
     sbis_contacts_page.open("https://sbis.ru/contacts")
